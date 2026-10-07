@@ -67,13 +67,12 @@ e.g. `crop=iw:trunc(iw*9/16/2)*2:0:400`.
 
 ## Logos
 
-Put logo files in `assets/logos/` with these exact names (transparent PNG works best; any colour is fine,
-the site turns them white for the dark band). Until a file exists, the name shows as text.
+Put logo files in `assets/logos/` with these exact names (transparent PNG works best. Logos show in greyscale and keep their texture; they turn full colour on hover). Until a file exists, the name shows as text.
 
 | Row | File |
 |---|---|
-| Created with | `obge-global.png`, `aloya-festival.png`, `societe-sat.png`, `whatsupmontreal.png`, `en-marge.png`, `fondation-charles-bruneau.png` |
-| Recognized by | `reseau-technosciences.png`, `adriq.png`, `octas.png`, `iric-udem.png`, `tele-quebec.png`, `radio-canada.png` |
+| Created with | `obge-global.png`, `aloya-festival.png`, `societe-sat.png`, `whatsupmontreal.png`, `en-marge.png`, `academie-sante-sourire.png` |
+| Recognized by (moving banner in the Proof section) | `reseau-technosciences.png`, `adriq.png`, `octas.png`, `iric-udem.png`, `tele-quebec.png`, `radio-canada.png` |
 
 Using SVG instead? Change `.png` to `.svg` for that logo in `index.html`.
 

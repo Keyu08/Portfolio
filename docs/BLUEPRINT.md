@@ -185,3 +185,19 @@ Raise rates by ~25% once the 3 founding spots are filled and you have client res
 - **Services:** each card shows the video that proves it: series design (Side Quests Ep 1), cinematic food (10 PM in Shanghai), events (Aloya).
 - **Series row:** Side Quests Ep 1–3 + En Marge, to show recurring-audience thinking.
 - **Widescreen gallery:** travel, food, nightlife and documentary range.
+
+
+## v6: Page order (optimised for conversion)
+
+1. **Hero:** promise + CTA, three strongest vertical edits
+2. **Created with:** client logos right under the fold (social proof before any claim)
+3. **The real problem:** why scripted ads fail and why trust matters
+4. **Selected work:** proof of quality as early as possible, ending in a mid-page CTA
+5. **Services:** what they can buy, with the video that proves each one
+6. **How I learn:** every video gets broken down (Wonderland example); lessons applied in any style
+7. **How we work together:** the Lab Method (hypothesis → variants → test → iterate)
+8. **Who you'd work with:** the letter + floating facts (18, Montréal, trilingual, team, Nymeris…)
+9. **Why trust me:** VisionnAIre project file + moving "Recognized by" banner + Nymeris sales proof
+10. **Pricing & guarantees:** founding rates, turnaround, revisions
+11. **FAQ:** objections
+12. **Book:** final CTA with scarcity

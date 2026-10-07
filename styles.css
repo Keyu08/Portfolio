@@ -696,3 +696,68 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .lab__stats { grid-template-columns: 1fr 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { .logos__track { animation: none; } }
+
+/* =========================================================
+   v6: textured monochrome logos, recognized-by banner,
+   facts floating around the envelope, mid-page CTA
+   ========================================================= */
+/* Light band so greyscale logos keep their texture and detail */
+.logos { background: var(--paper-2); color: var(--ink); border-block: 1px solid var(--line); padding: 32px 0 24px; }
+.logos__label { color: var(--muted); }
+.logos__platforms { color: var(--muted); }
+.logo img {
+  filter: grayscale(1) contrast(1.15);
+  mix-blend-mode: multiply;           /* drops white logo backgrounds into the band colour */
+  opacity: 0.8;
+  transition: filter 0.3s, opacity 0.3s;
+}
+.logo:hover img { filter: grayscale(0); opacity: 1; }
+.logo__name { color: var(--ink); opacity: 0.75; }
+
+/* Recognized by: moving banner inside the Proof section */
+.recog { margin-top: 24px; background: var(--paper-2); border-radius: 22px; padding: 22px 0 18px; overflow: hidden; }
+.recog__label { margin: 0 0 12px; padding: 0 26px; color: var(--muted); font-size: 11px; }
+.recog .logo { height: 40px; }
+.recog .logo__name { font-size: 18px; }
+
+/* Story: facts floating on each side of the envelope */
+.story__stage { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: clamp(16px, 3vw, 48px); width: 100%; max-width: 1280px; }
+.facts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.facts--left { align-items: flex-end; }
+.facts--right { align-items: flex-start; }
+.fact {
+  background: var(--paper); border-radius: 18px; padding: 14px 18px; max-width: 250px; text-align: left;
+  box-shadow: 0 14px 34px -18px rgba(13, 13, 13, 0.35);
+  display: flex; flex-direction: column; gap: 2px;
+  animation: float 6s ease-in-out infinite;
+}
+.fact:nth-child(odd) { rotate: -2deg; }
+.fact:nth-child(even) { rotate: 1.5deg; }
+.facts--left .fact:nth-child(2), .facts--right .fact:nth-child(1) { margin-inline: 28px 0; animation-delay: -2s; }
+.facts--left .fact:nth-child(2) { margin-inline: 0 28px; }
+.fact:nth-child(3) { animation-delay: -4s; }
+.fact__big { font-family: var(--display); font-weight: 800; font-size: 44px; line-height: 1; letter-spacing: -0.05em; color: var(--accent); }
+.fact__k { font-size: 10px; color: var(--muted); }
+.fact b { font-family: var(--display); font-size: 19px; letter-spacing: -0.02em; line-height: 1.15; }
+.fact__l { font-size: 13px; color: #55524b; line-height: 1.35; }
+.fact--accent { background: var(--ink); color: var(--paper); }
+.fact--accent .fact__k { color: var(--accent); }
+.fact--accent .fact__l { color: #c9c5bb; }
+@keyframes float { 50% { translate: 0 -6px; } }
+
+/* Mid-page CTA after the work */
+.midcta { margin-top: clamp(56px, 8vw, 96px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 28px 32px; border-radius: 24px; background: var(--ink); color: var(--paper); }
+.midcta__text { margin: 0; font-family: var(--display); font-weight: 800; font-size: clamp(24px, 3vw, 40px); letter-spacing: -0.04em; }
+
+@media (max-width: 1080px) {
+  .story__stage { grid-template-columns: 1fr; }
+  .story__stage .envelope-wrap { order: -1; }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .fact { max-width: none; margin: 0 !important; rotate: 0deg !important; animation: none; }
+}
+@media (max-width: 520px) {
+  .fact { padding: 12px 14px; }
+  .fact b { font-size: 16px; }
+  .fact__big { font-size: 34px; }
+}
+@media (prefers-reduced-motion: reduce) { .fact { animation: none; } }
