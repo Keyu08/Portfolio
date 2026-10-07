@@ -118,11 +118,15 @@
   /* ---------- Custom cursor ---------- */
   const cursor = document.querySelector(".cursor");
   if (cursor && canHover && !reduceMotion) {
+    const label = cursor.querySelector(".cursor__label");
     let cx = 0, cy = 0, tx = 0, ty = 0;
     window.addEventListener("mousemove", (e) => {
       tx = e.clientX; ty = e.clientY;
       cursor.classList.add("is-visible");
-      cursor.classList.toggle("is-play", !!e.target.closest("[data-cursor='play']"));
+      const mode = e.target.closest("[data-cursor]")?.dataset.cursor;
+      cursor.classList.toggle("is-play", mode === "play");
+      cursor.classList.toggle("is-open", mode === "open");
+      label.textContent = mode === "open" ? "Open" : "Play";
     });
     document.addEventListener("mouseleave", () => cursor.classList.remove("is-visible"));
     const loop = () => {
@@ -212,4 +216,71 @@
   modal?.querySelector("[data-close-reel]").addEventListener("click", closeModal);
   modal?.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
   modal?.addEventListener("close", () => modalVideo?.pause());
+
+  /* ---------- Variable-font proximity headline ----------
+     Splits the text into letters; each one gets heavier and wider as the pointer approaches. */
+  const vf = document.querySelector("[data-proximity]");
+  if (vf && canHover && !reduceMotion) {
+    const text = vf.textContent.trim();
+    vf.setAttribute("aria-label", text);
+    vf.innerHTML = [...text]
+      .map((c) => (c === " " ? '<span class="vf__sp"> </span>' : `<span class="vf__c" aria-hidden="true">${c}</span>`))
+      .join("");
+    const letters = [...vf.querySelectorAll(".vf__c")];
+    let px = -9999, py = -9999, queued = false;
+    const paint = () => {
+      queued = false;
+      letters.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        const d = Math.hypot(px - (r.left + r.width / 2), py - (r.top + r.height / 2));
+        const f = Math.max(0, 1 - d / 260);
+        el.style.fontVariationSettings = `"wght" ${Math.round(500 + f * 300)}, "wdth" ${Math.round(100 - f * 25)}`;
+      });
+    };
+    window.addEventListener("mousemove", (e) => {
+      px = e.clientX; py = e.clientY;
+      if (!queued) { queued = true; requestAnimationFrame(paint); }
+    });
+    paint();
+  }
+
+  /* ---------- Stacking service cards ----------
+     Cards are position:sticky; as the next card slides over, the previous one recedes. */
+  const stackCards = [...document.querySelectorAll(".stack__card")];
+  if (stackCards.length && !reduceMotion) {
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const sticky = getComputedStyle(stackCards[0]).position === "sticky";
+      stackCards.forEach((card, i) => {
+        const nextCard = stackCards[i + 1];
+        if (!nextCard) return;
+        if (!sticky) { card.style.transform = card.style.filter = ""; return; }
+        const top = nextCard.getBoundingClientRect().top;
+        const start = window.innerHeight;
+        const end = parseFloat(getComputedStyle(nextCard).top) || 100;
+        const p = Math.min(Math.max((start - top) / (start - end), 0), 1);
+        card.style.transform = `scale(${1 - p * 0.06})`;
+        card.style.filter = `brightness(${1 - p * 0.25})`;
+      });
+    };
+    window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
+  }
+
+  /* ---------- Envelope → letter ---------- */
+  const envelope = document.querySelector(".envelope");
+  const letterModal = document.getElementById("letter-modal");
+  const today = new Date().toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" });
+  document.querySelectorAll("[data-today]").forEach((el) => (el.textContent = today));
+  if (envelope && letterModal) {
+    envelope.addEventListener("click", () => {
+      if (envelope.classList.contains("is-open")) { letterModal.showModal(); return; }
+      envelope.classList.add("is-open");
+      setTimeout(() => letterModal.showModal(), reduceMotion ? 0 : 1250);
+    });
+    letterModal.querySelectorAll("[data-close-letter]").forEach((b) => b.addEventListener("click", () => letterModal.close()));
+    letterModal.addEventListener("click", (e) => { if (e.target === letterModal) letterModal.close(); });
+    letterModal.addEventListener("close", () => setTimeout(() => envelope.classList.remove("is-open"), 200));
+  }
 })();

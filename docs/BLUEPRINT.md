@@ -1,7 +1,25 @@
 # keyu.cuts: Portfolio Conversion Blueprint
 
-Goal of the site: **book discovery calls with media buyers and DTC founders.**
+Goal of the site: **book discovery calls with brand founders and marketing teams.**
 Everything below serves that one action.
+
+> **v2 positioning (current):** "Cinematic short-form storyteller who lives on the feed", not
+> "performance editor with ROAS receipts". You don't have paid-ads proof yet, so the site sells
+> what you *can* prove: taste and craft (the work itself), social-media fluency, a brand you built
+> and sold out (Nymeris), national-level recognition, and a low-risk **Founding Partner** offer that
+> turns "no case studies yet" into a reason to book now. The performance-metric template below is
+> kept for when you have real numbers.
+
+### What changed in v2
+- Hero: "Stories that [stop the scroll / feel like cinema / sell without selling / people actually save]"
+- Reframe: "Your audience can smell an ad. So I make stories worth watching."
+- New **Services** section as sticky stacking cards (Capture / Elevate / Grow), inspired by extrafazant
+- Case studies became **Selected work** with honest craft specs (hook timing, pacing, runtime, organic views)
+- New **Story** section: a sealed envelope that opens into your letter ("I never really set out to become a content creator")
+- Proof now leads with **"Proof I can sell"** (Nymeris: 2 sold-out collections, team of 11, institutional contract)
+- Pricing became the **Founding Partner Program** (3 brands, intro rate, in exchange for sharing results)
+- FAQ answers "You're early in your career, why trust you?" and "Do you make UGC?" honestly
+- Hero headline uses the variable font Bricolage Grotesque; letters get heavier and narrower near the cursor
 
 ---
 
