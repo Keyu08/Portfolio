@@ -526,7 +526,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .letter__meta { color: var(--muted); margin-bottom: 18px !important; font-size: 11px !important; }
 .letter__title { font-size: clamp(30px, 4.6vw, 52px); line-height: 1; letter-spacing: -0.04em; font-weight: 800; margin: 0 0 28px; }
 .letter__big { font-family: var(--display) !important; font-size: clamp(22px, 2.6vw, 30px) !important; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15 !important; color: var(--ink) !important; }
-.letter__big:last-of-type { color: var(--accent) !important; }
+.letter__big--accent { color: var(--accent) !important; }
 .letter__sign { font-family: "Caveat", cursive; font-size: 40px !important; color: var(--ink) !important; margin: 8px 0 28px !important; }
 .letter__close { position: sticky; top: 0; float: right; margin: -12px -12px 0 0; width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: var(--paper); font-size: 15px; z-index: 2; }
 
@@ -600,3 +600,48 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 @media (max-width: 520px) {
   .wide-rail--43 { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   v4: sound on hover, wide service cards, letter CTAs
+   ========================================================= */
+.phone[data-cursor="sound"] { cursor: pointer; }
+.phone__sound {
+  position: absolute; z-index: 2; top: 12px; right: 12px;
+  padding: 6px 10px; border-radius: 999px; font-size: 10px; font-weight: 600;
+  background: rgba(13, 13, 13, 0.62); color: var(--paper); backdrop-filter: blur(6px);
+  opacity: 0; transform: translateY(-4px); transition: opacity 0.25s, transform 0.25s, background 0.25s;
+  pointer-events: none;
+}
+.phone__sound .on { display: none; }
+.phone:hover .phone__sound, .phone:focus-visible .phone__sound, .phone.is-sound .phone__sound { opacity: 1; transform: none; }
+.phone.is-sound .phone__sound { background: var(--accent); color: var(--ink); }
+.phone.is-sound .phone__sound .on { display: inline; }
+.phone.is-sound .phone__sound .off { display: none; }
+.phone.is-sound .phone__sound .on::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-right: 6px; animation: pulse-ink 1.2s infinite; }
+.phone:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+@media (hover: none) { .phone__sound { opacity: 1; transform: none; } }
+/* hero chips sit top-left; keep the sound badge clear of them on small phones */
+.hero__stage .phone__sound { top: auto; bottom: 12px; }
+
+/* Cursor in "sound" mode: a bigger circle with two-line text */
+.cursor.is-sound { width: 104px; height: 104px; margin: -52px 0 0 -52px; }
+.cursor.is-sound .cursor__label { opacity: 1; text-align: center; max-width: 72px; line-height: 1.2; font-size: 11px; }
+
+/* Services: cards with a widescreen video */
+.stack__card--wide { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }
+.stack__card--wide .stack__media { max-width: none; }
+
+/* Pricing footnote */
+.plans__note { margin: 24px 0 0; color: #9b978e; text-align: center; }
+
+/* Letter: email link + buttons */
+.letter__mail { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.letter__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.case .metric dd { overflow-wrap: anywhere; }
+
+@media (max-width: 860px) {
+  .stack__card--wide { grid-template-columns: 1fr; }
+}
+.hero { overflow-x: clip; }
+.metric--text dd { font-size: clamp(20px, 2vw, 28px); }
+.letter__close { margin: calc(12px - clamp(28px, 6vw, 64px)) calc(12px - clamp(28px, 6vw, 64px)) 0 0; }

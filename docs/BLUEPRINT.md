@@ -164,3 +164,24 @@ FR and Mandarin versions, agency white-label (see `index.html`).
 - [ ] Fill every `[BRACKET]` in the case studies and pricing
 - [ ] Confirm the guarantee numbers (48–72h, 2 revisions, 20+ variants) are ones you can keep
 - [ ] Update the spots count (`data-spots`) each month
+
+---
+
+## v4: Pricing (founding rates, CAD)
+
+| Offer | Price | Why this number |
+|---|---|---|
+| Pilot Video | $350 (+$150 if I shoot) | Low enough for a "yes" without a meeting, high enough to signal pro work. 3 hook variants make it feel like a test, not a gamble. |
+| Monthly Content | From $1,800/mo (8 videos + 1 shoot day) | About $225 per video, the going rate for early-career short-form creators who also shoot. Recurring revenue is the goal. |
+| Side Quest Feature | From $600 | Creator integration on your channels + 30-day usage rights. Backed by 222K / 75K organic view proof. |
+| Event coverage & recaps | From $500 | Aloya-style recap: on-site filming + one edited recap. |
+
+Raise rates by ~25% once the 3 founding spots are filled and you have client results to publish.
+
+## v4: Video placement logic
+
+- **Hero:** strongest vertical hooks (Wonderland 75K in the centre, bathtub surreal hook, En Marge docuseries).
+- **Selected work** (order = what buyers care about): viral storytelling (75K) → kinetic type (222K) → brand activation with real sponsors (Aloya: Silk, Orangina) → hospitality (Chaoxiyuan).
+- **Services:** each card shows the video that proves it: series design (Side Quests Ep 1), cinematic food (10 PM in Shanghai), events (Aloya).
+- **Series row:** Side Quests Ep 1–3 + En Marge, to show recurring-audience thinking.
+- **Widescreen gallery:** travel, food, nightlife and documentary range.

@@ -69,6 +69,46 @@
     });
   }
 
+  /* ---------- Sound on hover ----------
+     Hovering a video shows "Press for sound". Pressing unmutes that video (and mutes the rest);
+     moving the mouse off it mutes it again. After the first press, hovering any video plays its
+     sound straight away. Browsers only allow audio after a click, so the first press is required. */
+  let soundUnlocked = false;
+  const muteAll = (except) => videos.forEach((v) => { if (v !== except) v.muted = true; });
+  const setSoundUI = (fig, on) => fig.classList.toggle("is-sound", on);
+  frames.forEach((fig, i) => {
+    const v = videos[i];
+    const badge = document.createElement("span");
+    badge.className = "phone__sound mono";
+    badge.setAttribute("aria-hidden", "true");
+    badge.innerHTML = '<span class="off">' + (canHover ? "Press for sound" : "Tap for sound") + '</span><span class="on">Sound on</span>';
+    fig.appendChild(badge);
+    fig.setAttribute("role", "button");
+    fig.setAttribute("tabindex", "0");
+    fig.setAttribute("aria-label", "Play with sound");
+
+    const unmute = () => {
+      muteAll(v);
+      frames.forEach((f) => setSoundUI(f, false));
+      v.muted = false;
+      v.volume = 1;
+      v.play().catch(() => {});
+      setSoundUI(fig, true);
+    };
+    const mute = () => { v.muted = true; setSoundUI(fig, false); };
+    const toggle = () => {
+      if (v.muted) { soundUnlocked = true; unmute(); }
+      else { mute(); if (!canHover) soundUnlocked = false; }
+      if (window.__refreshCursor) window.__refreshCursor();
+    };
+
+    fig.addEventListener("click", toggle);
+    fig.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
+    fig.addEventListener("mouseenter", () => { if (soundUnlocked && canHover) unmute(); });
+    fig.addEventListener("mouseleave", mute);
+    v.addEventListener("pause", () => { if (!v.muted) mute(); });
+  });
+
   /* ---------- Hero word rotator ---------- */
   const words = [...document.querySelectorAll(".rotator__word")];
   if (words.length && !reduceMotion) {
@@ -122,13 +162,23 @@
   if (cursor && canHover && !reduceMotion) {
     const label = cursor.querySelector(".cursor__label");
     let cx = 0, cy = 0, tx = 0, ty = 0;
+    let hoverEl = null;
+    const refresh = () => {
+      const target = hoverEl?.closest("[data-cursor]");
+      const mode = target?.dataset.cursor;
+      cursor.classList.toggle("is-play", mode === "play");
+      cursor.classList.toggle("is-open", mode === "open");
+      cursor.classList.toggle("is-sound", mode === "sound");
+      if (mode === "open") label.textContent = "Open";
+      else if (mode === "sound") label.textContent = target.classList.contains("is-sound") ? "Sound on" : "Press for sound";
+      else label.textContent = "Play";
+    };
+    window.__refreshCursor = refresh;
     window.addEventListener("mousemove", (e) => {
       tx = e.clientX; ty = e.clientY;
       cursor.classList.add("is-visible");
-      const mode = e.target.closest("[data-cursor]")?.dataset.cursor;
-      cursor.classList.toggle("is-play", mode === "play");
-      cursor.classList.toggle("is-open", mode === "open");
-      label.textContent = mode === "open" ? "Open" : "Play";
+      hoverEl = e.target;
+      refresh();
     });
     document.addEventListener("mouseleave", () => cursor.classList.remove("is-visible"));
     const loop = () => {
