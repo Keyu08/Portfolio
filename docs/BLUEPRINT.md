@@ -201,3 +201,8 @@ Raise rates by ~25% once the 3 founding spots are filled and you have client res
 10. **Pricing & guarantees:** founding rates, turnaround, revisions
 11. **FAQ:** objections
 12. **Book:** final CTA with scarcity
+
+## v8 notes
+- **Prices are no longer shown on the site.** Each plan says a short "let's find the deal" line. The v4 pricing table above stays as your private reference for calls.
+- Case studies are now **director's notes** (feeling, hook, story, music & sound, type & look) plus "What your brand can take from it". They're written in first person from the project breakdowns, so edit any line that doesn't match what you actually had in mind.
+- The Lab Method follows the 6-step scientific method: research, hypothesis, experiment (plan, shoot, edit), analyze, conclusion, iterate.
