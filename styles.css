@@ -761,3 +761,40 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .fact__big { font-size: 34px; }
 }
 @media (prefers-reduced-motion: reduce) { .fact { animation: none; } }
+
+/* =========================================================
+   v7: tighter spacing between same-colour sections,
+   white silhouette logos on dark, wordmarks for detailed logos
+   ========================================================= */
+.reframe { padding-bottom: clamp(40px, 5vw, 72px); }
+.work { padding-top: clamp(40px, 5vw, 72px); padding-bottom: clamp(48px, 6vw, 80px); }
+.services { padding-top: clamp(40px, 5vw, 72px); }
+
+/* Logo band back to ink, logos as crisp white silhouettes */
+.logos { background: var(--ink); color: var(--paper); border-block: 0; padding: 36px 0 28px; }
+.logos__label { color: #9b978e; }
+.logos__platforms { color: #6f6b63; }
+.logo img {
+  filter: brightness(0) invert(1);   /* any colour logo → solid white shape (needs a transparent background) */
+  mix-blend-mode: normal;
+  opacity: 0.9;
+  transition: opacity 0.25s, transform 0.35s var(--ease);
+}
+.logo:hover img { filter: brightness(0) invert(1); opacity: 1; transform: scale(1.06); }
+/* Wordmarks (detailed logos, or no file yet): bold white type */
+.logo__name { color: var(--paper); opacity: 1; transition: color 0.25s; }
+.logo:hover .logo__name { color: var(--accent); }
+.logo--text img { display: none; }
+.logo--text .logo__name { display: inline; }
+/* orange star between brands */
+.logos__track .logo { position: relative; }
+.logos__track .logo::after { content: "✦"; position: absolute; right: -36px; color: var(--accent); font-size: 14px; }
+.logos__track { gap: 72px; padding-right: 72px; }
+
+/* Recognized by: same treatment, as a dark strip inside the Proof section */
+.recog { background: var(--ink); color: var(--paper); border-radius: 22px; margin: 16px 0 16px; padding: 22px 0 20px; }
+.recog__label { color: #9b978e; }
+.recog__label span { color: var(--accent); margin-right: 8px; }
+.recog .logo__name { color: var(--paper); font-size: 20px; }
+.recog .logo img { max-height: 34px; }
+.logos__marquee--light { mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }

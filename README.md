@@ -67,12 +67,19 @@ e.g. `crop=iw:trunc(iw*9/16/2)*2:0:400`.
 
 ## Logos
 
-Put logo files in `assets/logos/` with these exact names (transparent PNG works best. Logos show in greyscale and keep their texture; they turn full colour on hover). Until a file exists, the name shows as text.
+Logos show as **white silhouettes** on a dark strip, with an orange ✦ between them.
+
+- **Simple logos** (a shape or a wordmark): add a **transparent-background PNG** (or SVG) to `assets/logos/`
+  with the exact name below. Any colour works; the site turns it white. A white or coloured
+  background box would turn into a white rectangle, so remove the background first (remove.bg works).
+- **Detailed logos** (illustrations, photos, gradients): don't add a file. The brand name shows as a
+  bold white wordmark instead, which reads better than a detailed logo flattened to white.
+  To force text even when a file exists, add `logo--text` to that `<li class="logo">` in `index.html`.
 
 | Row | File |
 |---|---|
-| Created with | `obge-global.png`, `aloya-festival.png`, `societe-sat.png`, `whatsupmontreal.png`, `en-marge.png`, `academie-sante-sourire.png` |
-| Recognized by (moving banner in the Proof section) | `reseau-technosciences.png`, `adriq.png`, `octas.png`, `iric-udem.png`, `tele-quebec.png`, `radio-canada.png` |
+| Created with (strip under the hero) | `obge-global.png`, `aloya-festival.png`, `societe-sat.png`, `whatsupmontreal.png`, `en-marge.png`, `academie-sante-sourire.png` |
+| Recognized by (strip in "Why trust me", after VisionnAIre) | `reseau-technosciences.png`, `adriq.png`, `octas.png`, `iric-udem.png`, `tele-quebec.png`, `radio-canada.png` |
 
 Using SVG instead? Change `.png` to `.svg` for that logo in `index.html`.
 
