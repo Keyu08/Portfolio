@@ -335,4 +335,11 @@
     letterModal.addEventListener("click", (e) => { if (e.target === letterModal) letterModal.close(); });
     letterModal.addEventListener("close", () => setTimeout(() => envelope.classList.remove("is-open"), 200));
   }
+
+  /* ---------- Logos: show the name as text until a logo file is added ---------- */
+  document.querySelectorAll(".logo img").forEach((img) => {
+    const fallback = () => img.closest(".logo").classList.add("is-text");
+    if (img.complete && img.naturalWidth === 0) fallback();
+    img.addEventListener("error", fallback);
+  });
 })();

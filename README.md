@@ -16,11 +16,11 @@ Copy your files into `assets/videos/` with their names unchanged. The site tries
 
 | File | Shown as | Where it's used |
 |---|---|---|
-| storytelling1.MP4 (Wonderland, 75K) | 9:16 | Hero centre, Selected work 01, reel fallback |
+| storytelling1.MP4 (Wonderland) | 9:16 | Hero centre, Breakdown section player |
 | storytelling2.MP4 (Side Quests Ep 1) | 9:16 | Services 01, series row |
 | storytelling3.MP4 (Side Quests Ep 2) | 9:16 | Hero left, series row |
 | storytelling4.MP4 (Side Quests Ep 3) | 9:16 | Series row |
-| launchvideo.mov (En Marge) | 9:16 | Hero right, series row |
+| launchvideo.mov (En Marge) | 9:16 | Hero right, Selected work 01, series row |
 | vibeyvlog3.mov (Frozen Heart, 222K) | 16:9 (cropped) | Selected work 02 |
 | edits1.mov (Aloya Festival) | 4:3 | Services 03, Selected work 03, widescreen gallery |
 | ugc1.mov (Chaoxiyuan) | 16:9 (cropped) | Selected work 04 |
@@ -64,6 +64,18 @@ ffmpeg -i edits1.mov -vf "scale=1024:-2" -c:v libx264 -crf 24 -preset slow -c:a 
 (Audio is kept and compressed to AAC, since the site plays sound on hover.)
 If the picture in a letterboxed file isn't perfectly centred, adjust the crop's y offset,
 e.g. `crop=iw:trunc(iw*9/16/2)*2:0:400`.
+
+## Logos
+
+Put logo files in `assets/logos/` with these exact names (transparent PNG works best; any colour is fine,
+the site turns them white for the dark band). Until a file exists, the name shows as text.
+
+| Row | File |
+|---|---|
+| Created with | `obge-global.png`, `aloya-festival.png`, `societe-sat.png`, `whatsupmontreal.png`, `en-marge.png`, `fondation-charles-bruneau.png` |
+| Recognized by | `reseau-technosciences.png`, `adriq.png`, `octas.png`, `iric-udem.png`, `tele-quebec.png`, `radio-canada.png` |
+
+Using SVG instead? Change `.png` to `.svg` for that logo in `index.html`.
 
 ## Adding more videos later
 

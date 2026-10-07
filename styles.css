@@ -645,3 +645,54 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hero { overflow-x: clip; }
 .metric--text dd { font-size: clamp(20px, 2vw, 28px); }
 .letter__close { margin: calc(12px - clamp(28px, 6vw, 64px)) calc(12px - clamp(28px, 6vw, 64px)) 0 0; }
+
+/* =========================================================
+   v5: client line, logo band, VisionnAIre project file
+   ========================================================= */
+.hero__clients { margin: 0; font-size: 15px; font-weight: 600; color: var(--ink); max-width: 52ch; line-height: 1.6; }
+.hero__clients .mono { display: block; font-weight: 400; margin-bottom: 4px; font-size: 11px; }
+
+.logos { background: var(--ink); color: var(--paper); padding: 40px 0 32px; overflow: hidden; }
+.logos__row { display: grid; grid-template-columns: 160px 1fr; align-items: center; gap: 24px; padding: 0 var(--gutter); }
+.logos__row--small { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line-inv); margin-inline: var(--gutter); padding-inline: 0; }
+.logos__label { margin: 0; color: #9b978e; font-size: 11px; }
+.logos__marquee { display: flex; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.logos__track { list-style: none; margin: 0; padding: 0; display: flex; gap: 56px; padding-right: 56px; flex-shrink: 0; animation: logos 32s linear infinite; }
+.logos__marquee:hover .logos__track { animation-play-state: paused; }
+@keyframes logos { to { transform: translateX(-100%); } }
+.logos__grid { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 14px 40px; align-items: center; }
+.logo { display: flex; align-items: center; height: 44px; }
+.logo img { max-height: 40px; max-width: 150px; width: auto; filter: grayscale(1) brightness(0) invert(1); opacity: 0.85; transition: opacity 0.25s; }
+.logo:hover img { opacity: 1; }
+.logo__name { font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: -0.03em; white-space: nowrap; display: none; }
+.logo.is-text img { display: none; }
+.logo.is-text .logo__name { display: inline; }
+.logos__row--small .logo { height: 32px; }
+.logos__row--small .logo img { max-height: 28px; max-width: 120px; }
+.logos__row--small .logo__name { font-size: 16px; color: #c9c5bb; }
+.logos__platforms { margin: 24px var(--gutter) 0; color: #6f6b63; font-size: 11px; }
+
+.lab { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(28px, 4vw, 64px); background: var(--paper-2); border-radius: 28px; padding: clamp(28px, 4vw, 56px); margin: 24px 0 24px; }
+.lab__tag { color: var(--accent); margin: 0 0 12px; }
+.lab__title { font-family: var(--display); font-size: clamp(28px, 3.2vw, 46px); line-height: 1; letter-spacing: -0.04em; font-weight: 800; margin: 0 0 18px; }
+.lab__lede { margin: 0 0 28px; color: #3b3934; font-size: 16px; max-width: 58ch; }
+.lab__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.lab__stats > div { border-top: 2px solid var(--ink); padding-top: 14px; }
+.lab__stats .stat__n { font-size: clamp(36px, 4vw, 60px); margin-bottom: 6px; }
+.lab__stats .stat__l { font-size: 13px; }
+.lab__link { text-decoration: underline; text-underline-offset: 4px; }
+.lab__lessons { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.lab__lessons li { background: var(--paper); border-radius: 18px; padding: 18px 20px; display: grid; grid-template-columns: 44px 1fr; gap: 4px 12px; align-items: baseline; }
+.lab__lessons .mono { font-size: 10px; color: var(--muted); }
+.lab__lessons .mono:nth-of-type(2) { color: var(--accent); }
+.lab__lessons b { font-family: var(--display); font-size: 19px; letter-spacing: -0.02em; }
+.lab__lessons p { margin: 0; font-size: 15px; color: #3b3934; }
+
+@media (max-width: 860px) {
+  .logos__row { grid-template-columns: 1fr; gap: 12px; }
+  .lab { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .lab__stats { grid-template-columns: 1fr 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { .logos__track { animation: none; } }
