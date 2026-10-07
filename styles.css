@@ -567,3 +567,36 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .envelope { animation: none; }
   .sticker svg { animation: none; }
 }
+
+/* =========================================================
+   v3: widescreen & 4:3 frames
+   Letterboxed 9:16 exports are cropped on display with object-fit: cover,
+   so the frame's aspect ratio decides what's visible (the black bars fall outside).
+   ========================================================= */
+.phone.frame--169 { aspect-ratio: 16 / 9; border-radius: 18px; }
+.phone.frame--43 { aspect-ratio: 4 / 3; border-radius: 18px; }
+
+/* Wide case studies: give the video more room */
+.case--wide { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
+.case--wide .metrics { grid-template-columns: repeat(2, 1fr); }
+.case--wide .metric:nth-child(2) { border-right: 0; }
+.case--wide .metric:nth-child(-n+2) { border-bottom: 1.5px solid var(--ink); }
+.case--wide .case__story { grid-template-columns: 1fr; gap: 16px; }
+.case--wide .case__title { font-size: clamp(26px, 2.8vw, 42px); }
+
+/* Widescreen gallery under the vertical rail */
+.more__head--sub { margin-top: 56px; }
+.wide-rail { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.wide-rail--43 { grid-template-columns: repeat(2, 1fr); margin-top: 16px; }
+.wide-rail .phone { transition: transform 0.5s var(--ease); }
+.wide-rail .phone:hover { transform: translateY(-6px); }
+
+@media (max-width: 860px) {
+  .case--wide { grid-template-columns: 1fr; }
+  .case--wide .case__media { max-width: none; }
+  .wide-rail { grid-template-columns: 1fr; }
+  .wide-rail--43 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .wide-rail--43 { grid-template-columns: 1fr; }
+}

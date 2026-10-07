@@ -10,8 +10,8 @@
   document.querySelectorAll("[data-month]").forEach((el) => (el.textContent = monthName));
 
   /* ---------- Video frames ----------
-     Each <figure data-video="vlog46"> gets a muted looping video.
-     Looks for assets/videos/<name>.mp4, then .mov. If neither loads, it shows a
+     Each <figure data-video="storytelling1"> gets a muted looping video.
+     Looks for assets/videos/<name>.mp4, then .MP4, then .mov. If neither loads, it shows a
      labelled placeholder so the layout never breaks. */
   const makeVideo = (fig) => {
     const name = fig.dataset.video;
@@ -19,9 +19,11 @@
     Object.assign(video, { muted: true, loop: true, playsInline: true, preload: "metadata" });
     video.setAttribute("muted", "");
     video.setAttribute("playsinline", "");
-    ["mp4", "mov"].forEach((ext, i, all) => {
+    // Tries a converted .mp4 first, then the original .MP4 / .mov straight from the camera or editor.
+    ["mp4", "MP4", "mov"].forEach((ext, i, all) => {
       const s = document.createElement("source");
-      s.type = ext === "mp4" ? "video/mp4" : "video/quicktime";
+      // No type on .mov: Chrome rejects "video/quicktime" up front but plays most .mov files when it sniffs them itself.
+      if (ext !== "mov") s.type = "video/mp4";
       if (i === all.length - 1) s.addEventListener("error", () => showPlaceholder(fig, name));
       s.src = `assets/videos/${name}.${ext}`;
       video.appendChild(s);
