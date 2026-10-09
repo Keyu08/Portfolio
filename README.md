@@ -4,7 +4,7 @@ A one-page, conversion-focused portfolio for ad creative editing. It's a plain s
 (HTML/CSS/JS) with no build step.
 
 - `index.html`: all copy and sections
-- `styles.css`: design system (paper / ink / signal-orange palette)
+- `styles.css`: design system (cream / espresso / olive / oxblood palette)
 - `main.js`: interactions (video autoplay, cursor, rotator, counters, tabs, reel modal)
 - `docs/BLUEPRINT.md`: copy strategy, reel sequencing, and the case-study template
 - `assets/videos/`: put your edits here
@@ -67,7 +67,7 @@ e.g. `crop=iw:trunc(iw*9/16/2)*2:0:400`.
 
 ## Logos
 
-Logos show as **white silhouettes** on a dark strip, with an orange ✦ between them.
+Logos show as **white silhouettes** on a dark strip, with a small ✦ between them.
 
 - **Simple logos** (a shape or a wordmark): add a **transparent-background PNG** (or SVG) to `assets/logos/`
   with the exact name below. Any colour works; the site turns it white. A white or coloured
