@@ -947,3 +947,65 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 @media (max-width: 860px) {
   .coach, .plans--two, .plans--four, .wide-rail--2 { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   v11: offer CTAs, single coaching offer, light "recognized by",
+   envelope alignment, highlighted notes, handwritten labels
+   ========================================================= */
+/* Envelope: no reserved space above it, so the notes line up with the closed envelope */
+.envelope { margin-top: 24px; }
+.envelope-wrap { margin-top: 0; }
+
+/* Handwritten notes: highlight the key words */
+.hand b { font-size: 1em; font-weight: 700; color: var(--accent); margin: 0; line-height: inherit;
+  background: linear-gradient(transparent 62%, rgba(11, 43, 139, 0.14) 62%); padding: 0 2px; }
+.hand b.big { font-size: 1.9em; line-height: 0.8; background: none; padding: 0; }
+
+/* Human labels: small section notes in handwriting instead of monospace */
+.eyebrow.mono, .services__group.mono, .plan__tag.mono, .notes__k.mono, .coach__tag.mono, .lab__tag.mono,
+.lab__lessons-title.mono, .lesson p .mono, .takeaway .mono, .founding__tag.mono, .logos__label.mono,
+.recog__label.mono, .sold__tag.mono, .case__client.mono, .plan__price {
+  font-family: "Caveat", cursive; text-transform: none; letter-spacing: 0; font-weight: 600;
+}
+.eyebrow.mono { font-size: 24px; }
+.services__group.mono { font-size: 26px; }
+.plan__tag.mono, .coach__tag.mono, .lab__tag.mono, .founding__tag.mono, .sold__tag.mono, .takeaway .mono { font-size: 21px; }
+.notes__k.mono { font-size: 21px; padding-top: 0; }
+.lab__lessons-title.mono, .logos__label.mono, .recog__label.mono { font-size: 21px; }
+.lesson p .mono { font-size: 18px; margin-bottom: 0; }
+.case__client.mono { font-size: 21px; }
+.plan__price { font-size: 23px; line-height: 1.2; }
+
+/* CTAs on every offer */
+.btn--line { border: 1.5px solid currentColor; background: transparent; color: inherit; }
+.btn--line:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.plan { display: flex; flex-direction: column; }
+.plan ul { margin-bottom: 22px; }
+.plan__cta { margin-top: auto; align-self: flex-start; }
+.plan--featured .btn--accent:hover { background: var(--ink); }
+.stack__cta { align-self: flex-start; margin-top: 22px; border: 1.5px solid currentColor; color: inherit; }
+.stack__cta:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.stack__card--2 .stack__cta:hover, .stack__card--3 .stack__cta:hover, .stack__card--4 .stack__cta:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+
+/* One coaching offer */
+.coach { grid-template-columns: 1fr; }
+.coach__card { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px 48px; }
+.coach__card p { max-width: 64ch; }
+.plans--one { display: grid; grid-template-columns: 1fr; }
+.plan--wide { display: grid; grid-template-columns: 1fr 1.2fr auto; align-items: center; gap: 24px 40px; }
+.plan--wide ul { margin: 0; }
+.plan--wide .plan__cta { margin: 0; align-self: center; }
+
+/* Recognized by: same light box as the science project, dark logos */
+.recog { --accent: var(--oxblood); background: var(--paper-2); color: var(--ink); }
+.recog__label { color: var(--muted); }
+.recog__label span { color: var(--accent); }
+.recog .logo img { filter: brightness(0); opacity: 0.8; }
+.recog .logo:hover img { filter: brightness(0); opacity: 1; }
+.recog .logo__name { color: var(--ink); }
+.recog .logo:hover .logo__name { color: var(--accent); }
+
+@media (max-width: 860px) {
+  .coach__card, .plan--wide { grid-template-columns: 1fr; align-items: start; }
+  .plan--wide .plan__cta { align-self: flex-start; }
+}
