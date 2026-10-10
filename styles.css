@@ -1009,3 +1009,32 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .coach__card, .plan--wide { grid-template-columns: 1fr; align-items: start; }
   .plan--wide .plan__cta { align-self: flex-start; }
 }
+
+/* =========================================================
+   v12: simple offer list
+   ========================================================= */
+.included { list-style: none; margin: 8px 0 48px; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.included li { border: 1px solid var(--line-inv); border-radius: 999px; padding: 10px 18px; font-size: 15px; color: #d6cbbd; }
+.included li::before { content: "✓"; color: var(--accent); margin-right: 8px; font-weight: 700; }
+.included b { color: var(--paper); }
+
+.menu { border-top: 1px solid var(--line-inv); }
+.menu__group.mono { font-family: "Caveat", cursive; text-transform: none; letter-spacing: 0; font-weight: 600; font-size: 26px; color: var(--accent); margin: 28px 0 6px; }
+.menu__list { list-style: none; margin: 0; padding: 0; }
+.menu__row { display: grid; grid-template-columns: 56px 1fr auto; align-items: center; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line-inv); transition: background 0.25s, padding 0.25s; }
+.menu__row:hover { background: rgba(237, 231, 199, 0.04); }
+.menu__n { font-family: var(--display); font-weight: 800; font-size: 20px; color: var(--accent); }
+.menu__text h3 { font-family: var(--display); font-size: clamp(22px, 2.2vw, 30px); letter-spacing: -0.03em; margin: 0 0 4px; }
+.menu__text p { margin: 0; color: #c4b8a9; font-size: 16px; max-width: 62ch; }
+.menu__row--featured { background: var(--paper); color: var(--ink); border-radius: 20px; padding: 22px 24px; margin: 8px 0; border-bottom: 0; --accent: var(--oxblood); }
+.menu__row--featured:hover { background: var(--paper); }
+.menu__row--featured .menu__text p { color: #4a3a33; }
+.menu__row .btn { white-space: nowrap; }
+.trust .founding { margin: 48px 0 0; }
+.trust .plans__note { margin-top: 24px; }
+
+@media (max-width: 720px) {
+  .menu__row { grid-template-columns: 1fr; gap: 10px; }
+  .menu__n { display: none; }
+  .menu__row .btn { justify-self: start; }
+}
