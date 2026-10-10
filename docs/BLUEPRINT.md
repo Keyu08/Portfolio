@@ -211,3 +211,9 @@ Raise rates by ~25% once the 3 founding spots are filled and you have client res
 - Voice shifted from agency to **creator / brand ambassador / promoter**: "Book a Collab Call", "Partnered with", "Three ways to work with me" (Create · Showcase · Represent).
 - Offers ordered Single Collab → Brand Ambassador (featured) → Monthly Retainer (last).
 - Palette: espresso #2C1E1A, cream #F9F6F0, olive #4A5343, oxblood #4A1521, plus a light oxblood tint (#C98A7D) used only as the accent on dark surfaces so it stays readable.
+
+## v10
+- Palette: beige #EDE7C7, royal blue #0B2B8B (from #8B0000), navy #061E5B (from #5B0202), dark brown #200E01; light blue #A9BEEF only as accent on dark surfaces.
+- Work is organised by client type: events & festivals, restaurants & experiences, launches & causes. Frozen Heart moved to the gallery.
+- Services split into **For brands** (get featured, brand film, event coverage, monthly content) and **For creators & business owners** (strategy session, 1:1 coaching). Same split in the offers.
+- About notes are handwritten, no boxes. VisionnAIre lessons show "in the lab" vs "in your content". Nymeris reframed as "I've been on your side too".

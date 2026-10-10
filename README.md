@@ -4,7 +4,7 @@ A one-page, conversion-focused portfolio for ad creative editing. It's a plain s
 (HTML/CSS/JS) with no build step.
 
 - `index.html`: all copy and sections
-- `styles.css`: design system (cream / espresso / olive / oxblood palette)
+- `styles.css`: design system (beige / royal blue / navy / dark brown palette)
 - `main.js`: interactions (video autoplay, cursor, rotator, counters, tabs, reel modal)
 - `docs/BLUEPRINT.md`: copy strategy, reel sequencing, and the case-study template
 - `assets/videos/`: put your edits here
@@ -16,14 +16,14 @@ Copy your files into `assets/videos/` with their names unchanged. The site tries
 
 | File | Shown as | Where it's used |
 |---|---|---|
-| storytelling1.MP4 (Wonderland) | 9:16 | Hero centre, Breakdown section player |
-| storytelling2.MP4 (Side Quests Ep 1) | 9:16 | Services 01, series row |
+| storytelling1.MP4 (Wonderland) | 9:16 | Hero centre, Breakdown player, Services 01 |
+| storytelling2.MP4 (Side Quests Ep 1) | 9:16 | Services 04, series row |
 | storytelling3.MP4 (Side Quests Ep 2) | 9:16 | Hero left, series row |
 | storytelling4.MP4 (Side Quests Ep 3) | 9:16 | Series row |
-| launchvideo.mov (En Marge) | 9:16 | Hero right, Selected work 01, series row |
-| vibeyvlog3.mov (Frozen Heart, 222K) | 16:9 (cropped) | Selected work 02 |
-| edits1.mov (Aloya Festival) | 4:3 | Services 03, Selected work 03, widescreen gallery |
-| ugc1.mov (Chaoxiyuan) | 16:9 (cropped) | Selected work 04 |
+| launchvideo.mov (En Marge) | 9:16 | Hero right, Work: launches & causes, series row |
+| vibeyvlog3.mov (Frozen Heart) | 16:9 (cropped) | Widescreen gallery |
+| edits1.mov (Aloya Festival) | 4:3 | Work: events, Services 03, widescreen gallery |
+| ugc1.mov (Chaoxiyuan) | 16:9 (cropped) | Work: restaurants & experiences |
 | edits2.mov (10 PM in Shanghai) | 16:9 (cropped) | Services 02, widescreen gallery |
 | edits3.mov (Bored in Montréal) | 16:9 (cropped) | Widescreen gallery |
 | vibeyvlog2.mov (Rainy temple hike) | 16:9 (cropped) | Widescreen gallery |
